@@ -1,0 +1,276 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  background-color: #f6f6f6;
+  color: #404345;
+  font-size: 13px;
+  font-family: Helvetica, Arial, sans-serif;
+  line-height: 24px;
+  -webkit-font-smoothing: antialiased;
+}
+a {
+  text-decoration: none;
+  cursor: default;
+}
+.col-1 {
+  width: 8.33333333%;
+}
+.col-2 {
+  width: 16.66666667%;
+}
+.col-3 {
+  width: 25%;
+}
+.col-4 {
+  width: 33.33333333%;
+}
+.col-5 {
+  width: 41.66666667%;
+}
+.col-6 {
+  width: 50%;
+}
+.col-7 {
+  width: 58.33333333%;
+}
+.col-8 {
+  width: 66.66666667%;
+}
+.col-9 {
+  width: 75%;
+}
+.col-10 {
+  width: 83.33333333%;
+}
+.col-11 {
+  width: 91.66666667%;
+}
+.col-12 {
+  width: 100%;
+}
+[class*="col-"] {
+  float: left;
+  padding: 15px;
+}
+.row::after {
+  content: "";
+  clear: both;
+  display: block;
+}
+.container {
+  margin: 0 auto;
+  min-width: 936px;
+  zoom: 1;
+}
+.header {
+  background: #2b2e30;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  line-height: 25px;
+}
+.header .nav {
+  top: 45px;
+}
+.title {
+  color: #fff;
+  display: inline-block;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  height: 45px;
+  margin-left: 12px;
+  padding: 8px 0 7px 0;
+  padding-left: 12px;
+}
+.nav {
+  background-color: #fff;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+  font-family: "Helvetica", Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  height: 45px;
+  padding: 12px 0 0 24px;
+}
+.nav > a {
+  color: #7f7f84;
+  padding: 20px 22px 10px 0;
+  text-transform: uppercase;
+}
+.nav > a:hover {
+  border-bottom: 3px solid #2481ff;
+}
+.body {
+  padding-top: 88px;
+}
+.rules {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.rules h1 {
+  color: #2b2c30;
+  font-size: 32px;
+  font-weight: 400;
+}
+.rules h3 {
+  color: #6a6c6c;
+  font-size: 24px;
+  font-weight: 300;
+}
+.wiki {
+  color: #595f66;
+  font-family: "Helvetica", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+}
+.wiki em {
+  font-weight: 600;
+  font-style: normal;
+}
+.message {
+  border-radius: 2px;
+  color: #2b2c30;
+  display: block;
+  font-family: "Helvetica", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 44px;
+  height: 44px;
+  max-height: 44px;
+  width: 462px;
+  max-width: 462px;
+  padding: 0px 15px 22px 15px;
+  margin: 50px 5px 15px 5px;
+}
+.aiStart {
+  background-color: rgba(65, 65, 65, 0.3);
+}
+.aiStart em {
+  font-size: 9px;
+  font-style: normal;
+  font-weight: lighter;
+}
+.aiDismiss {
+  color: inherit;
+}
+.playerWin {
+  background-color: #cceba3;
+}
+.winDismiss {
+  color: #63a013;
+}
+.catWin {
+  background-color: #bdd9ff;
+}
+.catDismiss {
+  color: #0066f0;
+}
+.hidden {
+  visibility: hidden;
+}
+.visible {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 2s linear;
+}
+.hiddenFade {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s 2s, opacity 2s linear;
+}
+.iconDisplay {
+  display: inline-block;
+  max-width: 25px;
+  width: 25px;
+  max-height: 25px;
+  height: 25px;
+  vertical-align: middle;
+  background-size: auto 18px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.info {
+  background-image: url('../icons/blueDot.png');
+}
+.win {
+  background-image: url('../icons/greatSuccess.png');
+}
+.dismiss {
+  font-family: "Verdana";
+  font-size: 18px;
+  vertical-align: middle;
+  text-align: center;
+  position: relative;
+  top: -11px;
+  right: -7px;
+}
+.gameStatus {
+  padding-left: 15px;
+  vertical-align: middle;
+  display: inline-block;
+  width: 374px;
+  max-width: 374px;
+}
+.gameboard {
+  display: table;
+  border-collapse: separate;
+  border-spacing: 4px 2px;
+  padding: 0;
+}
+.tilerow {
+  display: table-row;
+}
+.tile {
+  display: table-cell;
+  height: 150px;
+  max-height: 150px;
+  width: 150px;
+  max-width: 150px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  font-family: Helvetica;
+  font-size: 96px;
+  text-align: center;
+  vertical-align: middle;
+  overflow: hidden;
+}
+.crosses {
+  color: #7FCC19;
+}
+.noughts {
+  color: #F83313;
+}
+.btnWrapper {
+  max-width: 462px;
+  text-align: center;
+}
+.btn {
+  border-width: .0833rem;
+  border-style: solid;
+  color: #fff;
+  font-family: "Helvetica", Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  padding: 8px 16px;
+  cursor: pointer;
+  border-radius: 2px;
+  font-weight: 600;
+  text-decoration: none;
+  text-align: center;
+  text-shadow: none;
+  padding: 5px 15px;
+  margin: 8px 8px 8px 0;
+  outline: none;
+  display: inline-block;
+  white-space: nowrap;
+  z-index: 1;
+  -webkit-font-smoothing: antialiased;
+  -webkit-appearance: button;
+  border-color: #2074e6;
+  background-repeat: repeat-x;
+  background-image: -webkit-linear-gradient(top, #3d8fff 40%, #297eff 100%);
+}
+.btn:hover {
+  border-color: #164d99;
+  background-image: -webkit-linear-gradient(top, #2582ff 40%, #0368f1 100%);
+}
+.btn:active {
+  background-image: -webkit-linear-gradient(top, #0065ee 40%, #0065ee 100%);
+}

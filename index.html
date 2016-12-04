@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Thy Memories of Lenore</title>
+    <link href="https://fonts.googleapis.com/css?family=Aref+Ruqaa" rel="stylesheet">
+    <link rel="stylesheet/less" type="text/css" href="src/styles/styles.less" />
+    <!--<link rel="stylesheet" href="src/styles/style.css">-->
+    <!--<link rel="stylesheet" href="src/styles/animate.css">-->
+  </head>
+  <body>
+    <header class="header">
+      <div class="row">
+        <div class="title container col-12">
+            Thy Memories Of Lenore...
+        </div>
+
+      </div>
+      <nav class="row">
+        <div class="nav col-12">
+          <a id="newGame">New Game</a>
+          <a id="settingBurger"> Settings </a>
+      </div>
+      </nav>
+    </header>
+    <main class="body row">
+      <section id="gameBoard-Mount" class="gameboard col-8">
+
+      </section>
+      <section id="scoreboard" class="col-4 scoreboardArea">
+        <aside id="raven" class="scoreboard raven">
+          <ul id="RavenDeets"><li>Wins: 0 </li><li>Health: 0 </li><li>Points: 0</li></ul>
+          <span>The Raven wins if you take too many moves to finish.</span>
+        </aside>
+        <aside id="edgar" class="scoreboard edgar">
+          <ul id="EdgarDeets"><li>Wins: 0 </li><li>Health: 0 </li><li>Points: 0</li></ul>
+          <span>Edgar must solve the memory puzzle or lose even his memories of fair Lenore.</span>
+        </aside>
+        <aside id="lenore" class="scoreboard lenore hidden">
+          <ul id="LenoreDeets"><li>Wins: 0 </li><li>Health: 0 </li><li>Points: 0</li></ul>
+          <span>Lenore starts with 1 less health as she always goes second and can learn from Edgar's mistakes.</span>
+        </aside>
+      </section>
+        <div id="settingsPanel" class="overlayThird noView">
+          <form name="Settings">
+            <div class="form-group">
+              <label for="DeckSize">How Many Cards?</label>
+              <select class="form-control" id="DeckSize" name="DeckSize">
+                <option value="8" selected= "true">8</option>
+                <option value="16" >16</option>
+                <option value="32" >32</option>
+              </select>
+            </div>
+            <div id="playerCountGroup" class="form-group">
+              <label for="PlayerCount">How Many Players?</label>
+              <label class="radio-inline">
+                <input type="radio" name="inlineRadioOptions" id="playerCount1" value="1" checked="true"> 1
+              </label>
+              <label class="radio-inline">
+                <input type="radio" name="inlineRadioOptions" id="playerCount2" value="2"> 2
+              </label>
+            </div>
+            <button type="submit" id="settingBtn" class="btn btn-default">Submit</button><button type="submit" id="dismissBtn" class="btn btn-default">Dismiss</button>
+          </form>
+            <div class="ravenBody">
+              <p>
+              <em>Quoth the Raven “Nevermore.”</em>
+              “Be that word our sign of parting, bird or fiend!” I shrieked, upstarting—
+              “Get thee back into the tempest and the Night’s Plutonian shore!
+              Leave no black plume as a token of that lie thy soul hath spoken!
+              Leave my loneliness unbroken!—quit the bust above my door!
+              Take thy beak from out my heart, and take thy form from off my door!”
+              <em>Quoth the Raven “Nevermore.”</em>
+              And the <em>Raven</em>, never flitting, still is sitting, still is sitting
+              On the pallid bust of Pallas just above my chamber door;
+              <small>And his eyes have all the seeming of a demon’s that is dreaming,
+              And the lamp-light o’er him streaming throws his shadow on the floor;</small>
+              And my soul from out that <em>shadow</em> that lies floating on the floor
+              Shall be lifted—nevermore!
+              </p>
+            </div>
+          </div>
+          <div id="notification" class="notifyWindow hidden">Raven Wins</div>
+    </main>
+  <!-- set options before less.js script -->
+<script>
+  less = {
+    env: "development",
+    async: false,
+    fileAsync: false,
+    poll: 1000,
+    functions: {},
+    dumpLineNumbers: "comments",
+    relativeUrls: false,
+  };
+</script>
+<script src="src/js/less.min.js"></script>
+<!--<script
+src="https://code.jquery.com/jquery-3.1.1.js"
+integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
+crossorigin="anonymous"></script>-->
+<!--<script src="src/javascript/jquery.min.js"></script> -->
+<script src="src/js/game.js"></script>
+<script src="src/js/controls.js"></script>
+
+
+</body>
+</html>

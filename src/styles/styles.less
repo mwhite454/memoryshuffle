@@ -1,0 +1,314 @@
+* {
+    box-sizing: border-box;
+}
+
+
+@player1: shade(#f12e2e, 40%);
+@player2: #55a1e8;
+@shadow: 0 1px 5px rgba(0,0,0,.2);
+@thinFont:'Aref Ruqaa', serif;
+@midFont: 'Aref Ruqaa', cursive;
+@plainFont: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+@tile: 150px;
+
+body {
+  background-color: fade(#2b2e30, 40%);
+  color: #404345;
+  font-size: 13px;
+  font-family: @thinFont;
+  line-height: 24px;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  text-decoration: none;
+  cursor: default;
+}
+
+.generate-columns(12);
+
+.generate-columns(@n, @i: 1) when (@i =< @n) {
+  .col-@{i} {
+    width: (@i * 100% / @n);
+  }
+  .generate-columns(@n, (@i + 1));
+}
+
+[class*="col-"] {
+  float: left;
+  padding: 15px;
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: block;
+}
+
+.container {
+  margin: 0 auto;
+  min-width: 936px;
+  zoom: 1;
+}
+
+.header {
+  background: #2b2e30;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  .nav{
+    top:45px;
+  }
+  line-height: 25px;
+}
+
+.title {
+  color: shade(#f12e2e, 20%);
+  display: inline-block;
+  font-family: @thinFont;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 30px;
+  height: 50px;
+  margin-left: 12px;
+  padding: 8px 0 7px 0;
+  padding-left: 12px;
+}
+
+.nav {
+  background-color: fade(#2b2e30, 10%);
+  font-family: @midFont;
+  font-size: 13px;
+  //height: 45px;
+  padding: 10px 24px;
+  }
+
+.nav>a{
+  color: #fff;
+  padding: 20px 22px 8px 0;
+  &:hover{
+    color: shade(#f12e2e, 20%);
+  }
+  text-transform: uppercase;
+  #settingBurger{
+    float: right;
+    margin-right: 20px;
+  }
+}
+
+.notifyWindow{
+  background-color: #2b2e30 ;
+  color: #fff;
+  position:fixed;
+  top:25%;
+  right:40%;
+  z-index:900;
+  border: 1px solid #2b2e30;
+  border-radius: 10px;
+  display: block;
+  text-align: center;
+  line-height: 60px;
+  font-size: 55px;
+  height: 100px;
+  max-height: 150px;
+  width: 350px;
+  max-width: 350px;
+  padding: 10px;
+  text-transform: capitalize;
+}
+
+.overlayThird{
+  background-color: fade(#2b2e30, 90%);
+  color: #fff;
+  position:fixed;
+  width:40%;
+  height:100%;
+  top:0px;
+  right:0px;
+  z-index:998;
+  form {
+    background-color: #2b2e30;
+    margin: 10% 10%;
+    position: relative;
+    width: 80%;
+    font-size: 14px;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 10px;
+    padding: 10px;
+    border: 2px solid shade(#2b2e30, 20%);
+    z-index: 999;
+    input {
+      width: 2em;
+      margin: 5px 5px;
+      text-align: center;
+    }
+  }
+}
+
+.ravenBody {
+  color: fade(#fff, 10%);
+  font-size: 45px;
+  line-height: 48px;
+  position: absolute;
+  left: -5px;
+  top: 0;
+  z-index: 900;
+  width: 125%;
+  em{
+    color: fade(#fff, 15%);
+    font-size:48px;
+  }
+  small{
+    color: fade(#fff, 7%);
+    font-size: 40px;
+    padding: -5px;
+  }
+  p {
+    display: inline;
+  }
+}
+.noView {
+  display: none;
+}
+
+.body {
+  padding-top: 88px;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.visible{
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 2s linear;
+}
+
+.hiddenFade {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s 1s, opacity 1s linear;
+}
+
+.gameboard {
+  box-sizing: border-box;
+  border-spacing: 4px 2px;
+  padding: 10px 10px;
+}
+
+.tilerow{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+.tile{
+  border: 2px solid rgba(0,0,0, .4);
+  border-radius: 6px;
+  float: left;
+  margin: 3px;
+  cursor: pointer;
+  height: @tile;
+  max-height: @tile;
+  width: @tile;
+  max-width: @tile;
+  font-family: @thinFont;
+  font-size: 65px;
+  text-align: center;
+  padding-top:  @tile * 0.1;
+  padding-left: @tile * 0.35;
+  overflow: hidden;
+}
+.cardBack{
+  background-color: shade(@player1, 20%) ;
+  background-image: url('../icons/Raven2_150.png');
+}
+.playa1{
+  color: @player1;
+  background-color: shade(@player1, 20%) ;
+  background-image: url('../icons/Edgar2_150.png');
+}
+.playa2{
+  color: @player2;
+  background-color: shade(@player2, 50%) ;
+  background-image: url('../icons/Lenore2_150.png');
+}
+
+#scoreboard{
+  padding: 0;
+}
+
+.scoreboard{
+  border: 1px solid #2b2e30;
+  border-radius: 10px;
+  color: #2b2c30;
+  display: block;
+  font-size: 14px;
+  height: 150px;
+  max-height: 150px;
+  width: 310px;
+  max-width: 310px;
+  padding: 0px 15px 22px 165px;
+  margin: 10px 5px 5px 5px;
+  background-repeat: no-repeat;
+  ul {
+  list-style-type: none;
+  padding-left: 0;  }
+}
+.raven{
+  background-image: url('../icons/Raven2_150.png');
+}
+.edgar{
+  background-image: url('../icons/Edgar2_150.png');
+}
+.lenore{
+  background-image: url('../icons/Lenore2_150.png');
+}
+.died{
+  background-color: shade(@player1, 30%);
+}
+
+aside{
+  border-radius: 10px;
+  height: @tile;
+  max-height: @tile;
+  width: @tile * 2.1;
+  max-width: @tile * 2.1;
+  span{
+    display: block;
+    font-size: 10px;
+    line-height: 12px;
+  }
+}
+
+
+.btn{
+  border-width: .0833rem;
+  border-style: solid;
+  color: #fff;
+  font-family: @plainFont;
+  font-size: 13px;
+  padding: 8px 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-weight: 600;
+  text-decoration: none;
+  text-align: center;
+  text-shadow: none;
+  padding: 5px 15px;
+  margin: 8px 8px 8px 0;
+  outline: none;
+  display: inline-block;
+  white-space: nowrap;
+  z-index: 1;
+  -webkit-appearance: button;
+  border-color: #333;
+  background-color: shade(#2b2e30, 40%);
+  &:hover{
+    border-color: shade(@player1, 40%);
+  }
+
+}
