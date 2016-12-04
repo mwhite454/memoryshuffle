@@ -112,6 +112,7 @@ function Board(){
   this.rows;
   this.turn;
   this.assessState = function(){
+
     var card1 = globals.board.state[0];
     var card2 = globals.board.state[1];
     var stateCheck;
@@ -174,31 +175,43 @@ function Game(){
     sc.raven.points = sc.raven.points + ravenUpdate[0];
     sc.raven.health = ravenUpdate[1];
     sc.edgar.points = edgarUpdate[0];
+    var edgarStart = sc.edgar.health;
+    var lenoreStart = sc.lenore.health;
     sc.edgar.health = sc.edgar.health - edgarUpdate[1];
     sc.lenore.points = lenoreUpdate[0];
     sc.lenore.health = sc.lenore.health - lenoreUpdate[1];
-    console.log(cardsMatched + " : " + globals.deckSize);
+    if(edgarStart>sc.edgar.health || lenoreStart > sc.lenore.health){
+      showHit();
+    }
+    //console.log(cardsMatched + " : " + globals.deckSize);
     //check round state now. If both players are dead Raven Wins.
     //If Raven dies, one of the players wins based on points. Ravens Points just show misses.
     if(globals.deckSize == cardsMatched){
       if(sc.edgar.points > sc.lenore.points){
         sc.edgar.wins+=1;
         showWinner("edgar");
+        setTimeout(newRound, 2000);
       } else if (sc.edgar.points == sc.lenore.points){
         sc.edgar.wins+=1;
         sc.lenore.wins+=1;
         showWinner("Tie! Love");
+        setTimeout(newRound, 2000);
       } else {
         sc.lenore.wins+=1;
         showWinner("lenore");
+        setTimeout(newRound, 2000);
       }
     }  else if(sc.edgar.health<=0 && sc.lenore.health<=0){
       sc.raven.wins+=1;
       showWinner("raven");
+      setTimeout(newRound, 2000);
     }
     updateScoreCards();
     globals.board.state = [];
     globals.canClick = true;
+    if(globals.playerCount>1){
+      notifyTurn();
+    }
   };
   this.initScoreCard = function(){
     var sc = globals.scoreCard;
@@ -207,7 +220,7 @@ function Game(){
     sc.raven.points = 0;
     sc.edgar.health = globals.deckSize;
     sc.edgar.points = 0;
-    sc.lenore.health = (globals.playerCount>1 ? (globals.deckSize - 1) : 0);
+    sc.lenore.health = (globals.playerCount>1 ? (globals.deckSize) : 0);
     sc.lenore.points = 0;
     updateScoreCards();
   }

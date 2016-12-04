@@ -3,8 +3,15 @@
 }
 
 
+@accent: #bc6657;
+@edgar: #af969c;
+@body: desaturate(#8f7aa1, 10%);
+@lenore: spin(#8f7aa1, 50);
+@raven: lighten(#2a1c35, 10%);
+@backing: #150811;
+
 @player1: shade(#f12e2e, 40%);
-@player2: #55a1e8;
+@player2: @lenore;
 @shadow: 0 1px 5px rgba(0,0,0,.2);
 @thinFont:'Aref Ruqaa', serif;
 @midFont: 'Aref Ruqaa', cursive;
@@ -12,12 +19,21 @@
 @tile: 150px;
 
 body {
-  background-color: fade(#2b2e30, 40%);
+  //background-color: fade(#2b2e30, 40%);
+  //background-color: fade(@backing, 60%);
+  background-color: @body;
   color: #404345;
   font-size: 13px;
   font-family: @thinFont;
   line-height: 24px;
   -webkit-font-smoothing: antialiased;
+  background: repeating-linear-gradient(
+    to right,
+    @body,
+    @body 3px,
+    fade(@backing, 70%) 3px,
+    fade(@backing, 70%) 6px
+  );
 }
 
 a {
@@ -52,7 +68,7 @@ a {
 }
 
 .header {
-  background: #2b2e30;
+  background: @backing;
   position: absolute;
   top: 0;
   left: 0;
@@ -64,7 +80,7 @@ a {
 }
 
 .title {
-  color: shade(#f12e2e, 20%);
+  color: @accent;
   display: inline-block;
   font-family: @thinFont;
   font-style: normal;
@@ -77,7 +93,7 @@ a {
 }
 
 .nav {
-  background-color: fade(#2b2e30, 10%);
+  background-color: fade(@backing, 10%);
   font-family: @midFont;
   font-size: 13px;
   //height: 45px;
@@ -88,7 +104,7 @@ a {
   color: #fff;
   padding: 20px 22px 8px 0;
   &:hover{
-    color: shade(#f12e2e, 20%);
+    color: @accent;
   }
   text-transform: uppercase;
   #settingBurger{
@@ -98,13 +114,13 @@ a {
 }
 
 .notifyWindow{
-  background-color: #2b2e30 ;
+  background-color: @backing;
   color: #fff;
   position:fixed;
   top:25%;
   right:40%;
   z-index:900;
-  border: 1px solid #2b2e30;
+  border: 1px solid shade(@backing, 10%);
   border-radius: 10px;
   display: block;
   text-align: center;
@@ -118,8 +134,18 @@ a {
   text-transform: capitalize;
 }
 
+.bloody{
+  position: fixed;
+  top:0px;
+  right: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 20;
+  background-color: fadeout(@player1, 10%);
+}
+
 .overlayThird{
-  background-color: fade(#2b2e30, 90%);
+  background-color: fade(@backing, 90%);
   color: #fff;
   position:fixed;
   width:40%;
@@ -127,8 +153,9 @@ a {
   top:0px;
   right:0px;
   z-index:998;
+  overflow: hidden;
   form {
-    background-color: #2b2e30;
+    background-color: @backing;
     margin: 10% 10%;
     position: relative;
     width: 80%;
@@ -137,13 +164,8 @@ a {
     text-decoration: none;
     border-radius: 10px;
     padding: 10px;
-    border: 2px solid shade(#2b2e30, 20%);
+    border: 2px solid shade(@accent, 20%);
     z-index: 999;
-    input {
-      width: 2em;
-      margin: 5px 5px;
-      text-align: center;
-    }
   }
 }
 
@@ -206,7 +228,7 @@ a {
 }
 
 .tile{
-  border: 2px solid rgba(0,0,0, .4);
+  border: 2px solid fade(@backing, 40%);
   border-radius: 6px;
   float: left;
   margin: 3px;
@@ -223,17 +245,17 @@ a {
   overflow: hidden;
 }
 .cardBack{
-  background-color: shade(@player1, 20%) ;
+  background-color: @raven;
   background-image: url('../icons/Raven2_150.png');
 }
 .playa1{
-  color: @player1;
-  background-color: shade(@player1, 20%) ;
+  color: lighten(@edgar, 20%);
+  background-color: shade(@edgar, 20%) ;
   background-image: url('../icons/Edgar2_150.png');
 }
 .playa2{
-  color: @player2;
-  background-color: shade(@player2, 50%) ;
+  color: lighten(@lenore, 20%);
+  background-color: @lenore;
   background-image: url('../icons/Lenore2_150.png');
 }
 
@@ -242,7 +264,7 @@ a {
 }
 
 .scoreboard{
-  border: 1px solid #2b2e30;
+  border: 1px solid @backing;
   border-radius: 10px;
   color: #2b2c30;
   display: block;
@@ -256,19 +278,24 @@ a {
   background-repeat: no-repeat;
   ul {
   list-style-type: none;
-  padding-left: 0;  }
+  padding-left: 0;
+  margin: 5px 0;}
 }
 .raven{
+  background-color: @raven;
+  color: screen(#fff, @raven);
   background-image: url('../icons/Raven2_150.png');
 }
 .edgar{
+  background-color: @edgar;
   background-image: url('../icons/Edgar2_150.png');
 }
 .lenore{
+  background-color: @lenore;
   background-image: url('../icons/Lenore2_150.png');
 }
 .died{
-  background-color: shade(@player1, 30%);
+  background-color: @accent;
 }
 
 aside{
@@ -305,10 +332,10 @@ aside{
   white-space: nowrap;
   z-index: 1;
   -webkit-appearance: button;
-  border-color: #333;
-  background-color: shade(#2b2e30, 40%);
+  border-color: @lenore;
+  background-color: @backing;
   &:hover{
-    border-color: shade(@player1, 40%);
+    border-color: shade(@accent, 40%);
   }
 
 }

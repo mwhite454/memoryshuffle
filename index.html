@@ -9,6 +9,7 @@
     <!--<link rel="stylesheet" href="src/styles/animate.css">-->
   </head>
   <body>
+    <div id="container" class="bodyContainer">
     <header class="header">
       <div class="row">
         <div class="title container col-12">
@@ -20,6 +21,7 @@
         <div class="nav col-12">
           <a id="newGame">New Game</a>
           <a id="settingBurger"> Settings </a>
+          <a id="turnInfo" class="hidden">Edgar's Turn</a>
       </div>
       </nav>
     </header>
@@ -38,7 +40,7 @@
         </aside>
         <aside id="lenore" class="scoreboard lenore hidden">
           <ul id="LenoreDeets"><li>Wins: 0 </li><li>Health: 0 </li><li>Points: 0</li></ul>
-          <span>Lenore starts with 1 less health as she always goes second and can learn from Edgar's mistakes.</span>
+          <span>Lenore must aid her love from beyond the veil.</span>
         </aside>
       </section>
         <div id="settingsPanel" class="overlayThird noView">
@@ -81,7 +83,9 @@
             </div>
           </div>
           <div id="notification" class="notifyWindow hidden">Raven Wins</div>
+          <div id="hit" class="hidden"></div>
     </main>
+  </div>
   <!-- set options before less.js script -->
 <script>
   less = {

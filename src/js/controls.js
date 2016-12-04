@@ -83,9 +83,36 @@ function showWinner(winner){
   var fadeIt = setTimeout(hideNotification, 1000);
 }
 
+function notifyTurn(){
+  var el = document.getElementById('turnInfo');
+  var playerName = (globals.playerCount>1 && globals.turn == 0)? "Edgar" : "Lenore";
+  el.innerHTML = playerName + "'s Turn";
+  removeClass(el, 'hidden');
+  removeClass(el, 'hiddenFade');
+}
+
+function notifyTurnHide(){
+  var el = document.getElementById('turnInfo');
+  addClass(el, 'hiddenFade');
+}
+
 function hideNotification(){
   var el = document.getElementById('notification');
   addClass(el, 'hiddenFade');
+}
+
+function showHit(){
+  var el = document.getElementById('hit');
+  removeClass(el, "hidden");
+  removeClass(el, "hiddenFade");
+  addClass(el, "bloody");
+  var fadeIt = setTimeout(hideHit, 100);
+}
+
+function hideHit(){
+  var el = document.getElementById('hit');
+  removeClass(el, "blody");
+  addClass(el, "hiddenFade");
 }
 
 function updateScoreCards(){
@@ -124,6 +151,7 @@ function settingsChange() {
   }
   //if new player joins game
   if(globals.playerCount > 1){
+    notifyTurn();
     var player2 = new Player("Player 2");
     globals.players.push(player2);
     var lenore = document.getElementById("lenore");
@@ -131,6 +159,7 @@ function settingsChange() {
   } else {
     var lenore = document.getElementById("lenore");
     addClass(lenore, "hiddenFade");
+    notifyTurnHide();
   }
   globals.deckSize = parseInt(document.getElementById("DeckSize").value);
   globals.board = new Board();
