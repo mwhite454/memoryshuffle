@@ -19,21 +19,21 @@
 @tile: 150px;
 
 body {
-  //background-color: fade(#2b2e30, 40%);
-  //background-color: fade(@backing, 60%);
   background-color: @body;
   color: #404345;
   font-size: 13px;
   font-family: @thinFont;
   line-height: 24px;
+  margin-bottom: 20px;
   -webkit-font-smoothing: antialiased;
   background: repeating-linear-gradient(
     to right,
     @body,
-    @body 3px,
-    fade(@backing, 70%) 3px,
-    fade(@backing, 70%) 6px
-  );
+    @body 10px,
+    fade(@backing, 70%) 10px,
+    fade(@backing, 70%) 20px
+  ),
+  url("../icons/bg.png");
 }
 
 a {
@@ -79,6 +79,16 @@ a {
   line-height: 25px;
 }
 
+.footer {
+  background: @backing;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  padding: 6px 0 7px 22px;
+  height: 30px;
+  width: 100%;
+}
+
 .title {
   color: @accent;
   display: inline-block;
@@ -88,29 +98,35 @@ a {
   font-size: 30px;
   height: 50px;
   margin-left: 12px;
-  padding: 8px 0 7px 0;
-  padding-left: 12px;
+  padding: 8px 0 7px 12px;
 }
 
 .nav {
   background-color: fade(@backing, 10%);
   font-family: @midFont;
   font-size: 13px;
-  //height: 45px;
   padding: 10px 24px;
+
   }
 
 .nav>a{
   color: #fff;
   padding: 20px 22px 8px 0;
-  &:hover{
-    color: @accent;
-  }
   text-transform: uppercase;
-  #settingBurger{
-    float: right;
-    margin-right: 20px;
+    &:hover{
+      color: @accent;
+    }
   }
+
+.littleMessages{
+  font-size: 13px;
+  color: #fff;
+  text-transform: capitalize;
+}
+
+.specialMessage{
+  color: @accent;
+  text-transform: none;
 }
 
 .notifyWindow{
@@ -124,24 +140,28 @@ a {
   border-radius: 10px;
   display: block;
   text-align: center;
-  line-height: 60px;
   font-size: 55px;
-  height: 100px;
-  max-height: 150px;
+  height: 200px;
+  max-height: 200px;
   width: 350px;
   max-width: 350px;
-  padding: 10px;
+  padding-top: 20px;
   text-transform: capitalize;
+  p{
+    margin-top: 20px;
+    padding-top: 20px;
+    font-size: 20px;
+  }
 }
 
 .bloody{
   position: fixed;
+  background-color: rgba(255,0,0,.2);
   top:0px;
   right: 0px;
   width: 100%;
   height: 100%;
   z-index: 20;
-  background-color: fadeout(@player1, 10%);
 }
 
 .overlayThird{
@@ -295,6 +315,7 @@ a {
   background-image: url('../icons/Lenore2_150.png');
 }
 .died{
+  background-image: url('../icons/Skull.png');
   background-color: @accent;
 }
 
@@ -337,5 +358,4 @@ aside{
   &:hover{
     border-color: shade(@accent, 40%);
   }
-
 }

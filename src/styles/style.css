@@ -2,12 +2,14 @@
   box-sizing: border-box;
 }
 body {
-  background-color: #f6f6f6;
+  background-color: #8e8596;
   color: #404345;
   font-size: 13px;
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: 'Aref Ruqaa', serif;
   line-height: 24px;
+  margin-bottom: 20px;
   -webkit-font-smoothing: antialiased;
+  background: repeating-linear-gradient(to right, #8e8596, #8e8596 10px, rgba(21, 8, 17, 0.7) 10px, rgba(21, 8, 17, 0.7) 20px), url("../icons/bg.png");
 }
 a {
   text-decoration: none;
@@ -64,7 +66,7 @@ a {
   zoom: 1;
 }
 .header {
-  background: #2b2e30;
+  background: #150811;
   position: absolute;
   top: 0;
   left: 0;
@@ -74,95 +76,133 @@ a {
 .header .nav {
   top: 45px;
 }
+.footer {
+  background: #150811;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  padding: 6px 0 7px 22px;
+  height: 30px;
+  width: 100%;
+}
 .title {
-  color: #fff;
+  color: #bc6657;
   display: inline-block;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Aref Ruqaa', serif;
   font-style: normal;
   font-weight: normal;
-  font-size: 14px;
-  height: 45px;
+  font-size: 30px;
+  height: 50px;
   margin-left: 12px;
-  padding: 8px 0 7px 0;
-  padding-left: 12px;
+  padding: 8px 0 7px 12px;
 }
 .nav {
-  background-color: #fff;
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
-  font-family: "Helvetica", Helvetica, Arial, sans-serif;
+  background-color: rgba(21, 8, 17, 0.1);
+  font-family: 'Aref Ruqaa', cursive;
   font-size: 13px;
-  height: 45px;
-  padding: 12px 0 0 24px;
+  padding: 10px 24px;
 }
 .nav > a {
-  color: #7f7f84;
-  padding: 20px 22px 10px 0;
+  color: #fff;
+  padding: 20px 22px 8px 0;
   text-transform: uppercase;
 }
 .nav > a:hover {
-  border-bottom: 3px solid #2481ff;
+  color: #bc6657;
+}
+.littleMessages {
+  font-size: 13px;
+  color: #fff;
+  text-transform: capitalize;
+}
+.specialMessage {
+  color: #bc6657;
+  text-transform: none;
+}
+.notifyWindow {
+  background-color: #150811;
+  color: #fff;
+  position: fixed;
+  top: 25%;
+  right: 40%;
+  z-index: 900;
+  border: 1px solid #13070f;
+  border-radius: 10px;
+  display: block;
+  text-align: center;
+  font-size: 55px;
+  height: 200px;
+  max-height: 200px;
+  width: 350px;
+  max-width: 350px;
+  padding-top: 20px;
+  text-transform: capitalize;
+}
+.notifyWindow p {
+  margin-top: 20px;
+  padding-top: 20px;
+  font-size: 20px;
+}
+.bloody {
+  position: fixed;
+  background-color: rgba(255, 0, 0, 0.2);
+  top: 0px;
+  right: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 20;
+}
+.overlayThird {
+  background-color: rgba(21, 8, 17, 0.9);
+  color: #fff;
+  position: fixed;
+  width: 40%;
+  height: 100%;
+  top: 0px;
+  right: 0px;
+  z-index: 998;
+  overflow: hidden;
+}
+.overlayThird form {
+  background-color: #150811;
+  margin: 10% 10%;
+  position: relative;
+  width: 80%;
+  font-size: 14px;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 10px;
+  padding: 10px;
+  border: 2px solid #965246;
+  z-index: 999;
+}
+.ravenBody {
+  color: rgba(255, 255, 255, 0.1);
+  font-size: 45px;
+  line-height: 48px;
+  position: absolute;
+  left: -5px;
+  top: 0;
+  z-index: 900;
+  width: 125%;
+}
+.ravenBody em {
+  color: rgba(255, 255, 255, 0.15);
+  font-size: 48px;
+}
+.ravenBody small {
+  color: rgba(255, 255, 255, 0.07);
+  font-size: 40px;
+  padding: -5px;
+}
+.ravenBody p {
+  display: inline;
+}
+.noView {
+  display: none;
 }
 .body {
   padding-top: 88px;
-}
-.rules {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-.rules h1 {
-  color: #2b2c30;
-  font-size: 32px;
-  font-weight: 400;
-}
-.rules h3 {
-  color: #6a6c6c;
-  font-size: 24px;
-  font-weight: 300;
-}
-.wiki {
-  color: #595f66;
-  font-family: "Helvetica", Helvetica, Arial, sans-serif;
-  font-size: 14px;
-}
-.wiki em {
-  font-weight: 600;
-  font-style: normal;
-}
-.message {
-  border-radius: 2px;
-  color: #2b2c30;
-  display: block;
-  font-family: "Helvetica", Helvetica, Arial, sans-serif;
-  font-size: 14px;
-  line-height: 44px;
-  height: 44px;
-  max-height: 44px;
-  width: 462px;
-  max-width: 462px;
-  padding: 0px 15px 22px 15px;
-  margin: 50px 5px 15px 5px;
-}
-.aiStart {
-  background-color: rgba(65, 65, 65, 0.3);
-}
-.aiStart em {
-  font-size: 9px;
-  font-style: normal;
-  font-weight: lighter;
-}
-.aiDismiss {
-  color: inherit;
-}
-.playerWin {
-  background-color: #cceba3;
-}
-.winDismiss {
-  color: #63a013;
-}
-.catWin {
-  background-color: #bdd9ff;
-}
-.catDismiss {
-  color: #0066f0;
 }
 .hidden {
   visibility: hidden;
@@ -175,82 +215,109 @@ a {
 .hiddenFade {
   visibility: hidden;
   opacity: 0;
-  transition: visibility 0s 2s, opacity 2s linear;
-}
-.iconDisplay {
-  display: inline-block;
-  max-width: 25px;
-  width: 25px;
-  max-height: 25px;
-  height: 25px;
-  vertical-align: middle;
-  background-size: auto 18px;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-.info {
-  background-image: url('../icons/blueDot.png');
-}
-.win {
-  background-image: url('../icons/greatSuccess.png');
-}
-.dismiss {
-  font-family: "Verdana";
-  font-size: 18px;
-  vertical-align: middle;
-  text-align: center;
-  position: relative;
-  top: -11px;
-  right: -7px;
-}
-.gameStatus {
-  padding-left: 15px;
-  vertical-align: middle;
-  display: inline-block;
-  width: 374px;
-  max-width: 374px;
+  transition: visibility 0s 1s, opacity 1s linear;
 }
 .gameboard {
-  display: table;
-  border-collapse: separate;
+  box-sizing: border-box;
   border-spacing: 4px 2px;
-  padding: 0;
+  padding: 10px 10px;
 }
 .tilerow {
-  display: table-row;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
 }
 .tile {
-  display: table-cell;
+  border: 2px solid rgba(21, 8, 17, 0.4);
+  border-radius: 6px;
+  float: left;
+  margin: 3px;
+  cursor: pointer;
   height: 150px;
   max-height: 150px;
   width: 150px;
   max-width: 150px;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  font-family: Helvetica;
-  font-size: 96px;
+  font-family: 'Aref Ruqaa', serif;
+  font-size: 65px;
   text-align: center;
-  vertical-align: middle;
+  padding-top: 15px;
+  padding-left: 52.5px;
   overflow: hidden;
 }
-.crosses {
-  color: #7FCC19;
+.cardBack {
+  background-color: #442e56;
+  background-image: url('../icons/Raven2_150.png');
 }
-.noughts {
-  color: #F83313;
+.playa1 {
+  color: #dbd0d3;
+  background-color: #8c787d;
+  background-image: url('../icons/Edgar2_150.png');
 }
-.btnWrapper {
-  max-width: 462px;
-  text-align: center;
+.playa2 {
+  color: #cbb6c3;
+  background-color: #a17a93;
+  background-image: url('../icons/Lenore2_150.png');
+}
+#scoreboard {
+  padding: 0;
+}
+.scoreboard {
+  border: 1px solid #150811;
+  border-radius: 10px;
+  color: #2b2c30;
+  display: block;
+  font-size: 14px;
+  height: 150px;
+  max-height: 150px;
+  width: 310px;
+  max-width: 310px;
+  padding: 0px 15px 22px 165px;
+  margin: 10px 5px 5px 5px;
+  background-repeat: no-repeat;
+}
+.scoreboard ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin: 5px 0;
+}
+.raven {
+  background-color: #442e56;
+  color: #ffffff;
+  background-image: url('../icons/Raven2_150.png');
+}
+.edgar {
+  background-color: #af969c;
+  background-image: url('../icons/Edgar2_150.png');
+}
+.lenore {
+  background-color: #a17a93;
+  background-image: url('../icons/Lenore2_150.png');
+}
+.died {
+  background-image: url('../icons/Skull.png');
+  background-color: #bc6657;
+}
+aside {
+  border-radius: 10px;
+  height: 150px;
+  max-height: 150px;
+  width: 315px;
+  max-width: 315px;
+}
+aside span {
+  display: block;
+  font-size: 10px;
+  line-height: 12px;
 }
 .btn {
   border-width: .0833rem;
   border-style: solid;
   color: #fff;
-  font-family: "Helvetica", Helvetica, Arial, sans-serif;
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
   font-size: 13px;
   padding: 8px 16px;
   cursor: pointer;
-  border-radius: 2px;
+  border-radius: 4px;
   font-weight: 600;
   text-decoration: none;
   text-align: center;
@@ -261,16 +328,10 @@ a {
   display: inline-block;
   white-space: nowrap;
   z-index: 1;
-  -webkit-font-smoothing: antialiased;
   -webkit-appearance: button;
-  border-color: #2074e6;
-  background-repeat: repeat-x;
-  background-image: -webkit-linear-gradient(top, #3d8fff 40%, #297eff 100%);
+  border-color: #a17a93;
+  background-color: #150811;
 }
 .btn:hover {
-  border-color: #164d99;
-  background-image: -webkit-linear-gradient(top, #2582ff 40%, #0368f1 100%);
-}
-.btn:active {
-  background-image: -webkit-linear-gradient(top, #0065ee 40%, #0065ee 100%);
+  border-color: #713d34;
 }

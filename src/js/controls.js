@@ -42,6 +42,18 @@ document.getElementById("settingBtn").addEventListener("click", function(event){
   settingsChange();
 });
 
+document.getElementById("accept").addEventListener("click", function(event){
+  event.preventDefault();
+  hideNotification();
+  newRound();
+});
+
+document.getElementById("noMore").addEventListener("click", function(event){
+  event.preventDefault();
+  clearBoard();
+  hideNotification();
+});
+
 //Control Functions
 function addTileListen(){
   var tiles = document.getElementsByClassName('tile');
@@ -73,20 +85,21 @@ function tileClick(){
       globals.turn = (globals.playerCount>1 && globals.turn == 0)? 1 : 0;
       globals.clickCount();
     }
+
   }
 }
 
-function showWinner(winner){
-  var el = document.getElementById('notification');
-  el.innerHTML = winner + " wins!";
-  removeClass(el, 'hidden');
-  var fadeIt = setTimeout(hideNotification, 1000);
-}
-
-function notifyTurn(){
-  var el = document.getElementById('turnInfo');
-  var playerName = (globals.playerCount>1 && globals.turn == 0)? "Edgar" : "Lenore";
-  el.innerHTML = playerName + "'s Turn";
+function notifyTurn(special){
+  if(!special){
+    var el = document.getElementById('turnInfo');
+    var playerName = (globals.turn == 0)? "Edgar" : "Lenore";
+    el.innerHTML = playerName + "'s Turn";
+    removeClass(el, 'specialMessage');
+  } else {
+    var el = document.getElementById('turnInfo');
+    el.innerHTML = special;
+    addClass(el, 'specialMessage');
+  }
   removeClass(el, 'hidden');
   removeClass(el, 'hiddenFade');
 }
@@ -96,22 +109,32 @@ function notifyTurnHide(){
   addClass(el, 'hiddenFade');
 }
 
+function showWinner(winner){
+  var el = document.getElementById('winPrompt');
+  removeClass(el, 'hidden');
+  removeClass(el, 'hiddenFade');
+  var note = document.getElementById('notification');
+  note.innerHTML = winner + " wins!";
+}
+
 function hideNotification(){
-  var el = document.getElementById('notification');
+  var el = document.getElementById('winPrompt');
   addClass(el, 'hiddenFade');
 }
 
 function showHit(){
+  console.log("Hit!");
   var el = document.getElementById('hit');
   removeClass(el, "hidden");
   removeClass(el, "hiddenFade");
   addClass(el, "bloody");
-  var fadeIt = setTimeout(hideHit, 100);
+  var fadeIt = setTimeout(hideHit, 250);
 }
 
 function hideHit(){
+  console.log("hide Hit1");
   var el = document.getElementById('hit');
-  removeClass(el, "blody");
+  removeClass(el, "bloody");
   addClass(el, "hiddenFade");
 }
 
@@ -125,9 +148,30 @@ function updateScoreCards(){
   thisCard = document.getElementById("EdgarDeets");
   contents = "<li>Wins: " + sc.edgar.wins + "</li><li>Health: "+ sc.edgar.health + "</li><li>Points: "+ sc.edgar.points + "</li>";
   thisCard.innerHTML = contents;
+  console.log(thisCard.parentElement.id);
+  // if edgar is dead alter scorecard theme
+  var el = document.getElementById("edgar");
+  if(sc.edgar.health<1){
+    console.log(el);
+    removeClass(el, "edgar");
+    addClass(el, "died");
+  } else {
+    removeClass(el, "died");
+    addClass(el, "edgar");
+  }
   thisCard = document.getElementById("LenoreDeets");
   contents = "<li>Wins: " + sc.lenore.wins + "</li><li>Health: "+ sc.lenore.health + "</li><li>Points: "+ sc.lenore.points + "</li>";
   thisCard.innerHTML = contents;
+  // if lenore is dead alter scorecard theme
+  el = document.getElementById("lenore");
+  if(sc.lenore.health<1){
+    removeClass(el, "lenore");
+    addClass(el, "died");
+  } else {
+    removeClass(el, "died");
+    addClass(el, "lenore");
+  }
+
 }
 
 function toggleSettings(){

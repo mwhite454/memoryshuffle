@@ -4,9 +4,9 @@
     <meta charset="utf-8">
     <title>Thy Memories of Lenore</title>
     <link href="https://fonts.googleapis.com/css?family=Aref+Ruqaa" rel="stylesheet">
-    <link rel="stylesheet/less" type="text/css" href="src/styles/styles.less" />
-    <!--<link rel="stylesheet" href="src/styles/style.css">-->
-    <!--<link rel="stylesheet" href="src/styles/animate.css">-->
+    <!--<link rel="stylesheet/less" type="text/css" href="src/styles/styles.less" />-->
+  <link rel="stylesheet" href="src/styles/style.css">
+
   </head>
   <body>
     <div id="container" class="bodyContainer">
@@ -21,7 +21,7 @@
         <div class="nav col-12">
           <a id="newGame">New Game</a>
           <a id="settingBurger"> Settings </a>
-          <a id="turnInfo" class="hidden">Edgar's Turn</a>
+          <span id="turnInfo" class="littleMessages hidden">Edgar's Turn</span>
       </div>
       </nav>
     </header>
@@ -82,12 +82,19 @@
               </p>
             </div>
           </div>
-          <div id="notification" class="notifyWindow hidden">Raven Wins</div>
+          <div id="winPrompt" class="notifyWindow hidden">
+            <div id="notification">Raven Wins</div>
+            <p>Play Again?</p>
+            <button type="submit" id="accept" class="btn btn-default">Yes!</button>
+            <button type="submit" id="noMore" class="btn btn-default">Alas, no.</button>
+          </div>
           <div id="hit" class="hidden"></div>
     </main>
+
   </div>
+  <footer class="footer">All javascript, images, and styling created by Michael White.</footer>
   <!-- set options before less.js script -->
-<script>
+<!--<script>
   less = {
     env: "development",
     async: false,
@@ -98,7 +105,7 @@
     relativeUrls: false,
   };
 </script>
-<script src="src/js/less.min.js"></script>
+<script src="src/js/less.min.js"></script>-->
 <!--<script
 src="https://code.jquery.com/jquery-3.1.1.js"
 integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="

@@ -116,10 +116,15 @@ function Board(){
     var card1 = globals.board.state[0];
     var card2 = globals.board.state[1];
     var stateCheck;
-    if(card1[0] === card2[0]){
-      stateCheck = setTimeout(globals.board.deck.hideMatched, 500);
+    if(card1[0] === card2[0] && card1[1]!=card2[1]){
+      stateCheck = setTimeout(globals.board.deck.hideMatched, 300);
+    } else if (card1[0] === card2[0] && card1[1]==card2[1]){
+        notifyTurn("Quoth the Raven - Double click no more!");
+        globals.board.state.pop();
+        globals.clickCount();
+        globals.canClick = true;
     } else {
-      stateCheck = setTimeout(globals.board.deck.clearCards, 1000);
+      stateCheck = setTimeout(globals.board.deck.clearCards, 500);
     }
   };
 
@@ -190,28 +195,34 @@ function Game(){
       if(sc.edgar.points > sc.lenore.points){
         sc.edgar.wins+=1;
         showWinner("edgar");
-        setTimeout(newRound, 2000);
       } else if (sc.edgar.points == sc.lenore.points){
         sc.edgar.wins+=1;
         sc.lenore.wins+=1;
         showWinner("Tie! Love");
-        setTimeout(newRound, 2000);
       } else {
         sc.lenore.wins+=1;
         showWinner("lenore");
-        setTimeout(newRound, 2000);
       }
     }  else if(sc.edgar.health<=0 && sc.lenore.health<=0){
       sc.raven.wins+=1;
       showWinner("raven");
-      setTimeout(newRound, 2000);
     }
     updateScoreCards();
     globals.board.state = [];
     globals.canClick = true;
-    if(globals.playerCount>1){
+    //ensure that dead players get skipped
+    let edgarCanPlay = (sc.edgar.health>0 && globals.turn==0? true : false);
+    let lenoreCanPlay = (sc.lenore.health>0 && globals.turn==1 && globals.playerCount>1);
+    if(edgarCanPlay || lenoreCanPlay){
+      notifyTurn();
+    } else {
+      //try to switch player
+      globals.turn = (globals.turn == 0 && globals.playerCount>1)? 1 : 0;
       notifyTurn();
     }
+/*    if(globals.playerCount>1){
+      notifyTurn();
+    }*/
   };
   this.initScoreCard = function(){
     var sc = globals.scoreCard;
