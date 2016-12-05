@@ -159,6 +159,7 @@ function updateScoreCards(){
     removeClass(el, "died");
     addClass(el, "edgar");
   }
+  if(globals.playerCount>1){
   thisCard = document.getElementById("LenoreDeets");
   contents = "<li>Wins: " + sc.lenore.wins + "</li><li>Health: "+ sc.lenore.health + "</li><li>Points: "+ sc.lenore.points + "</li>";
   thisCard.innerHTML = contents;
@@ -168,9 +169,12 @@ function updateScoreCards(){
     removeClass(el, "lenore");
     addClass(el, "died");
   } else {
+    removeClass(el, "hiddenFade");
     removeClass(el, "died");
     addClass(el, "lenore");
+
   }
+}
 
 }
 
